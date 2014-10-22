@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+           id="fr.edps.cordova.cellular" 
+      version="0.0.1">
+    <name>Cellular</name>
+    <description>Plugin pour déterminer les informations du réseau cellulaire comme cellId, LAC, PSC, IMEI, Operator etc. for android devices</description>
+    <license>MIT</license>
+    <keywords>cordova,cellular,network</keywords>
+    <author>jimibi, EDPS</author>
+    <repo>https://github.com/jimibi/cellular.git</repo>
+
+    <js-module src="www/cellular.js" name="Cellular">
+        <clobbers target="cellular" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="Cellular">
+                <param name="android-package" value="fr.edps.cordova.cellular.Cellular" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/Cellular.java" target-dir="src/fr/edps/cordova/cellular" />
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+        </config-file>
+    </platform>
+</plugin>
