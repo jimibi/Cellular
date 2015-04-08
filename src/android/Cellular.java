@@ -50,8 +50,8 @@ public class Cellular extends CordovaPlugin {
         /* Get the telephony service from the native code, the context will be the cordova application
          * that is invoking the service
          */
-        Cellular.Tel = (TelephonyManager) cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-        Cellular.cellLocation = (GsmCellLocation) Tel.getCellLocation();
+        this.Tel = (TelephonyManager) cordova.getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+        this.cellLocation = (GsmCellLocation) Tel.getCellLocation();
     }
     
     /**
